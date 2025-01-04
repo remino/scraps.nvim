@@ -21,6 +21,7 @@ local function browse(dir)
 	require("telescope.builtin").find_files({
 		prompt_title = directory,
 		cwd = directory,
+		follow = true,
 		previewer = true,
 		attach_mappings = function(_, map)
 			map("i", "<C-p>", function(prompt_bufnr)
