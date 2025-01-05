@@ -3,7 +3,9 @@ local M = {}
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
-vim.g.scraps_dir = vim.fn.expand((os.getenv("XDG_DATA_HOME") or "~/.local/share") .. "/scraps")
+if not vim.g.scraps_dir then
+	vim.g.scraps_dir = vim.fn.expand((os.getenv("XDG_DATA_HOME") or "~/.local/share") .. "/scraps")
+end
 
 local function is_table_empty(t)
 	return next(t) == nil
