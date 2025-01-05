@@ -4,6 +4,7 @@ local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
 vim.g.scraps_dir = vim.fn.expand((os.getenv("XDG_DATA_HOME") or "~/.local/share") .. "/scraps")
+vim.g.scraps_dirs = { vim.g.scraps_dir }
 
 local function require_telescope()
 	local status, _ = pcall(require, "telescope")
@@ -21,6 +22,7 @@ local function browse(dir)
 	require("telescope.builtin").find_files({
 		prompt_title = directory,
 		cwd = directory,
+		search_dirs = { directory },
 		follow = true,
 		previewer = true,
 		attach_mappings = function(_, map)
