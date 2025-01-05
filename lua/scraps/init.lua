@@ -106,8 +106,11 @@ function M.setup(opts)
 	opts = opts or {}
 
 	if opts.scraps_dir then
-		vim.notify("The scraps_dir option is deprecated. Please use scraps_dirs instead.", vim.log.levels.WARN,
-			{ title = "Scraps Warning" })
+		vim.notify(
+			"The scraps_dir option is deprecated. Please use scraps_dirs instead.",
+			vim.log.levels.WARN,
+			{ title = "Scraps Warning" }
+		)
 		vim.g.scraps_dir = opts.scraps_dir or vim.g.scraps_dir
 		vim.g.scraps_dirs = { vim.g.scraps_dir }
 	end
